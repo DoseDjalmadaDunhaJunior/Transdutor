@@ -31,6 +31,7 @@ int dica() {
     }
 }
 
+//converte char para int
 int converte(char* n, int tam){
     int s;
     s = 0;
@@ -48,6 +49,7 @@ int converte(char* n, int tam){
     return s;
 }
 
+//pega apenas a parcela do numero
 int pegaN(char* vet){
     char n[num];
     char aux[num];
@@ -69,22 +71,22 @@ int main() {
     puts("insira as variavies e numeros (conjuntos separados por espaço)");
     char vet[num];
     char temp[num];
-    cin>>vet;
-    int antcg = cg;
+    int j = 0;
+    int c = 0;
+    //cin >> vet;
+    scanf("%[^\n]", vet);
+    fflush(stdin);
+
     for (int i = 0; i < 9; i++) {
-        if(vet[i] == 32){
-            for (int j = antcg; j < cg; j++) {
-                temp[j] = vet[i];
-                cout<<temp[j];
-            }
-            puts("");
+        if (vet[i] == 32) {
+            c = i;
+            temp[j] = '\0';
         }
-        //cout<<i<<endl;
-        cg = i + 1;
+        else{
+            temp[(j-c)] = vet[i];
+        }
+        j++;
     }
-
-
-
-
+    cout<<temp<<endl;
     return 0;
 }
